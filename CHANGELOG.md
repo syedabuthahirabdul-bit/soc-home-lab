@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.2.0 — 2026-11-15
-- Script: `Get-SplunkInstaller.ps1` — list/download any Splunk Enterprise or UF version from download.splunk.com (version list from livehybrid/downloadSplunk)
+- Script: `Get-SplunkInstaller.ps1` — list/download (auto-verifies Splunk's official SHA512) any Splunk Enterprise or UF version from download.splunk.com (version list from livehybrid/downloadSplunk)
 - Docs: `resources.md` — community tools and credits
 
 ## 0.1.0 — 2026-11-15

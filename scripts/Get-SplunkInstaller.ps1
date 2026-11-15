@@ -91,6 +91,20 @@ if (Get-Command Start-BitsTransfer -ErrorAction SilentlyContinue) {
     Invoke-WebRequest -Uri $url -OutFile $file -UseBasicParsing
 }
 
-$hash = (Get-FileHash $file -Algorithm SHA256).Hash
-Write-Host "Done. SHA256: $hash" -ForegroundColor Green
-Write-Host "Compare it with the checksum on splunk.com before installing."
+# Verify against the official SHA512 that Splunk publishes next to every file
+$hash = (Get-FileHash $file -Algorithm SHA512).Hash.ToLower()
+try {
+    $official = (Invoke-WebRequest -Uri "$url.sha512" -UseBasicParsing).Content
+    $official = ([regex]::Match([string]$official, '[0-9a-fA-F]{128}')).Value.ToLower()
+} catch { $official = $null }
+
+if (-not $official) {
+    Write-Host "Downloaded. Could not fetch $url.sha512 to verify - check it manually." -ForegroundColor Yellow
+    Write-Host "SHA512: $hash"
+} elseif ($hash -eq $official) {
+    Write-Host "Done. SHA512 matches Splunk's official checksum - file is genuine." -ForegroundColor Green
+} else {
+    Write-Host "WARNING: SHA512 does NOT match Splunk's checksum. Do not install this file." -ForegroundColor Red
+    Write-Host "Expected: $official"
+    Write-Host "Got     : $hash"
+}
