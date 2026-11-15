@@ -1,0 +1,5 @@
+dist/
+*.pcap
+*.pcapng
+*.evtx
+.DS_Store

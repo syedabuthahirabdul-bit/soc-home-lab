@@ -1,0 +1,9 @@
+<nav search_view="search">
+  <view name="soc_lab_overview" default="true" />
+  <view name="search" />
+  <collection label="Detections">
+    <saved name="SOC Lab - Encoded PowerShell" />
+    <saved name="SOC Lab - Nmap Execution" />
+    <saved name="SOC Lab - Sysmon Event Volume" />
+  </collection>
+</nav>
