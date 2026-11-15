@@ -59,7 +59,16 @@ Everything here was done on my own laptop and home network.
 
 # 4. See what Sysmon recorded
 .\scripts\Get-SysmonEvents.ps1 -EventId 1 -Last 10
+
+# 5. Download any Splunk Enterprise / UF version from download.splunk.com
+.\scripts\Get-SplunkInstaller.ps1 -List
+.\scripts\Get-SplunkInstaller.ps1                 # latest Enterprise, Windows .msi
 ```
+
+> Scripts downloaded from GitHub are blocked by default. Allow them for the current window with:
+> `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
+
+📚 Community tools and credits: [docs/resources.md](docs/resources.md)
 
 ### Install the Splunk app
 1. Download `soc_home_lab.spl` from [Releases](../../releases) (or run `./build.sh`)

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 — 2026-11-15
+- Script: `Get-SplunkInstaller.ps1` — list/download any Splunk Enterprise or UF version from download.splunk.com (version list from livehybrid/downloadSplunk)
+- Docs: `resources.md` — community tools and credits
+
 ## 0.1.0 — 2026-11-15
 - Docs: tools landscape, basic concepts, Red/Blue/Purple, Nmap, Wireshark, Sysmon, CyberChef, Splunk (in progress)
 - Scripts: `Check-LabTools.ps1`, `Install-Sysmon.ps1`, `Invoke-EncodedPowerShellDemo.ps1`, `Get-SysmonEvents.ps1`
