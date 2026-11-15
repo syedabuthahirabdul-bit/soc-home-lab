@@ -32,3 +32,13 @@ Community projects I use in this lab. All credit to their authors — follow the
 ```
 Installers are downloaded from **download.splunk.com** and are not stored in this repo
 (Splunk's license doesn't allow redistribution, and they exceed GitHub's file size limit).
+
+### How older-version links work
+Splunk files live at a predictable URL — but each release has a unique **build ID** you can't guess:
+```
+https://download.splunk.com/products/<splunk|universalforwarder>/releases/<version>/<os>/<file>
+e.g. .../universalforwarder/releases/6.3.0/windows/splunkforwarder-6.3.0-aa7d4b1ccb80-x64-release.msi
+```
+- Discussion: [Splunk Community — Where is the Splunk Forwarder older versions page?](https://community.splunk.com/t5/Installation/Where-is-the-Splunk-Forwarder-older-versions-page/m-p/236089)
+- Official (login required): https://www.splunk.com/page/previous_releases/universalforwarder
+- livehybrid's list collects the build IDs, and `Get-SplunkInstaller.ps1` uses it to build the link automatically.
